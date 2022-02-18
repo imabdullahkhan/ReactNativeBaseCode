@@ -3,6 +3,7 @@ import React from 'react'
 import { useAuth } from '../contexts/Auth';
 import MainLoader from '../components/Loader/MainLoader';
 import { AppStack, AuthStack } from './stacks';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Router() {
     const { authData, loading } = useAuth();
@@ -23,8 +24,10 @@ export default function Router() {
     };
 
     return (
-        <NavigationContainer theme={MyTheme}>
-            {authData?.token ? <AppStack /> : <AuthStack />}
-        </NavigationContainer>
+        <SafeAreaProvider>
+            <NavigationContainer theme={MyTheme}>
+                {authData?.token ? <AppStack /> : <AuthStack />}
+            </NavigationContainer>
+        </SafeAreaProvider>
     )
 }
