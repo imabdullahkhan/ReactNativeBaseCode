@@ -1,19 +1,25 @@
 import React from "react";
 import { Text, TouchableOpacity, StyleSheet, View } from "react-native";
+import { useSelector } from "react-redux";
 import bs from "../../style/BasicStyle";
 import { fonts, themeColor } from "../../style/Theme";
 
 import { Loader } from "../Loader";
 
+
+
 const Button = props => {
+    const theme = useSelector(state => state.general.theme);
+    const { primary: primaryColor } = themeColor(theme);
+
     const {
         isLoading = false,
         text = "Submit",
-        onPress = () => {},
+        onPress = () => { },
         primary = true,
         disabled = false,
         style = null,
-        bgColor = themeColor.primaryColor,
+        bgColor = primaryColor,
         textStyle = null,
         loaderColor = "white",
         loaderSize = "small",

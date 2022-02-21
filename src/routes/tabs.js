@@ -6,6 +6,7 @@ import Profile from '../views/Profile/Profile';
 import { Image, View } from 'react-native';
 import { APP_ROUTES } from './routes';
 import { themeColor } from '../style/Theme';
+import { useSelector } from 'react-redux';
 
 const Tab = createBottomTabNavigator();
 
@@ -48,11 +49,14 @@ const tabRoutes = [
 ]
 
 export const AppTabs = () => {
+  const theme = useSelector(state => state.general.theme);
+  const { primary } = themeColor(theme)
+
   return (
     <Tab.Navigator
       screenOptions={{
         tabBarStyle: { borderTopLeftRadius: 40, borderTopRightRadius: 40, paddingTop: 5 },
-        tabBarActiveTintColor: themeColor.primaryColor,
+        tabBarActiveTintColor: primary,
         tabBarInactiveTintColor: "#b1afaf",
         headerTitleAlign: "center",
         headerTitleStyle: {

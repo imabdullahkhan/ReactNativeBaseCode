@@ -1,8 +1,26 @@
-export const themeColor = {
-    appBackground: "#F6F6F6",
-    primaryColor: "#074354",
-    error: "#B00020"
+const themes = {
+    "light": {
+        background: "#F6F6F6",
+        primary: "#074354",
+        error: "#B00020",
+        background: 'rgb(242, 242, 242)',
+        card: 'rgb(255, 255, 255)',
+        text: 'rgb(28, 28, 30)',
+        border: 'rgb(199, 199, 204)',
+        notification: 'rgb(255, 69, 58)',
+    },
+    "dark": {
+        background: "#2D2424",
+        primary: "#B85C38",
+        error: "#B00020",
+        card: 'rgb(255, 255, 255)',
+        text: '#E0C097',
+        border: 'rgb(199, 199, 204)',
+        notification: 'rgb(255, 69, 58)',
+    }
 };
+
+export const themeColor = (theme = "light") => themes[theme];
 
 export const padding = {
     xs: 5,

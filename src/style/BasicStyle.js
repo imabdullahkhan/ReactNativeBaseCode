@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { padding, margin, themeColor } from "./Theme";
+import { padding, margin } from "./Theme";
 
 export default StyleSheet.create({
     // ========= Fonts ================= //
@@ -541,7 +541,7 @@ export default StyleSheet.create({
         display: "none"
     },
     validation: {
-        color: themeColor.error,
+        color: "#B00020",
         fontSize: 10
     }
 });
