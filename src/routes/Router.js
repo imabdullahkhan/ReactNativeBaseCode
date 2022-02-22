@@ -2,11 +2,11 @@ import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/
 import React from 'react'
 import { useAuth } from '../contexts/Auth';
 import MainLoader from '../components/Loader/MainLoader';
-import { AppStack, AuthStack } from './stacks';
+import AuthStack from './AuthStack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { useColorScheme } from 'react-native';
 import { themeColor } from '../style/Theme';
 import { useSelector } from 'react-redux';
+import DrawerNavigator from './DrawerNavigator';
 
 export default function Router() {
     const { authData, loading } = useAuth();
@@ -26,7 +26,7 @@ export default function Router() {
     return (
         <SafeAreaProvider>
             <NavigationContainer theme={MyTheme}>
-                {authData?.token ? <AppStack /> : <AuthStack />}
+                {authData?.token ? <DrawerNavigator /> : <AuthStack />}
             </NavigationContainer>
         </SafeAreaProvider>
     )

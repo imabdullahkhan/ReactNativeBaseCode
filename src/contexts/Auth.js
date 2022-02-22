@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
         token: "sample-token"
       });
       setLoading(false);
-    }, 1000);
+    }, 500);
   };
 
   const signOut = async () => {
@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
       const _authData = false;
       setAuthData(_authData);
       setLoading(false)
-    }, 500);
+    }, 100);
 
   };
 

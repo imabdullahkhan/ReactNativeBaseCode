@@ -1,30 +1,10 @@
 import React from 'react'
 import { createStackNavigator } from "@react-navigation/stack";
 import SignIn from '../views/SignIn/SignIn'
-import { AppTabs } from './tabs';
 import { APP_ROUTES } from './routes'
 
 const Stack = createStackNavigator();
 
-
-const appRoutes = [
-  {
-    name: APP_ROUTES.BOTTOM_TABS,
-    component: AppTabs
-  }
-]
-
-export const AppStack = () => {
-  return (
-    <Stack.Navigator>
-      {
-        appRoutes.map(({ name, component }) => (
-          <Stack.Screen key={name} options={{ headerShown: false }} name={name} component={component} />
-        ))
-      }
-    </Stack.Navigator>
-  );
-};
 
 const authRoutes = [
   {
@@ -33,7 +13,7 @@ const authRoutes = [
   }
 ]
 
-export const AuthStack = () => {
+const AuthStack = () => {
   return (
     <Stack.Navigator>
       {
@@ -44,3 +24,5 @@ export const AuthStack = () => {
     </Stack.Navigator>
   );
 };
+
+export default AuthStack;
